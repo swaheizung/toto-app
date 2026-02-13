@@ -1,0 +1,2175 @@
+
+Ich möchte mit dir und Vibe coding eine Website bauen um das zo lernen. Ich habe keine guten Softwarekenntnisse. Bitte erkläre mir ein in einfacher Sprache schritt für schritt wie das funktioniert. Bitte verwende trotzdem Fachbegriffe und erkläre diese, sodass ich viel lerne. Stelle sicher, dass ich verstehe, was ich mache und warum.
+
+21:26
+Vibe Coding: Deine erste Website bauen
+Schön, dass du das lernen möchtest! Vibe Coding bedeutet, dass du mir in natürlicher Sprache beschreibst, was du willst – und ich schreibe den Code für dich. Du lernst dabei, wie alles funktioniert, ohne jede Zeile selbst tippen zu müssen.
+
+Schritt 1: Was ist überhaupt eine Website?
+Eine Website besteht aus drei Bausteinen:
+
+HTML (HyperText Markup Language) ist das Skelett – es definiert die Struktur. Hier sagst du: "Hier ist eine Überschrift, hier ein Absatz, hier ein Bild."
+
+CSS (Cascading Style Sheets) ist das Aussehen – Farben, Schriftarten, Abstände. Es macht das Skelett hübsch.
+
+JavaScript ist das Gehirn – es macht die Seite interaktiv. Zum Beispiel: "Wenn jemand auf diesen Button klickt, zeige eine Nachricht."
+
+Schritt 2: Wie läuft Vibe Coding ab?
+Du beschreibst, was du bauen willst – in normaler Sprache
+Ich schreibe den Code und erkläre dir, was jeder Teil macht
+Du siehst das Ergebnis direkt als funktionierende Vorschau
+Du gibst Feedback – "Mach die Schrift größer" oder "Füge einen Button hinzu"
+Ich passe an – und so iterieren wir, bis es passt
+Das Wort iterieren bedeutet: in kleinen Schritten verbessern, immer wieder anpassen.
+
+Schritt 3: Lass uns starten!
+Bevor ich etwas baue, brauche ich von dir eine Idee. Was für eine Website schwebt dir vor?
+
+Ein paar Beispiele zur Inspiration:
+
+Eine persönliche Portfolio-Seite – die dich und deine Arbeit vorstellt
+Eine Landingpage – eine einzelne Seite, die ein Produkt oder eine Idee präsentiert
+Ein Lebenslauf als Website – modern und interaktiv
+Eine kleine App – zum Beispiel eine To-Do-Liste oder ein Quiz
+Was klingt interessant für dich? Oder hast du eine eigene Idee?
+
+Ich will eine kleine APP bauen, mit einer ToDo Liste und einer E-Mail Funktion. Am liebsten auch mit einem Nuterverzeichnis, dass ich micht mit apple sigle sign on anmelden kann.
+
+21:44
+Sehr ambitioniert – ich mag das! Lass mich dir erklären, was realistisch ist und wie wir vorgehen können.
+
+Was du beschreibst, sind eigentlich drei verschiedene Dinge:
+1. To-Do-Liste – das ist machbar und perfekt zum Lernen. Wir können eine voll funktionsfähige Liste bauen, bei der du Aufgaben hinzufügen, abhaken und löschen kannst.
+
+2. E-Mail-Funktion – hier wird es kompliziert. Echte E-Mails versenden braucht einen Server (ein Computer, der im Internet läuft) und einen E-Mail-Dienst (wie SendGrid oder AWS SES). Das geht über Vibe Coding hinaus, weil wir nur Frontend bauen können – also das, was im Browser läuft.
+
+3. Apple Single Sign-On mit Nutzerverzeichnis – das braucht ebenfalls einen Server plus eine Datenbank (wo Nutzerdaten gespeichert werden) plus Apples Entwicklerprogramm (kostet 99€/Jahr). Das ist ein größeres Projekt.
+
+Mein Vorschlag: Stufenweise vorgehen
+Stufe 1 (heute): Wir bauen eine schöne To-Do-App, die im Browser funktioniert. Die Daten speichern wir im Local Storage – das ist ein kleiner Speicher in deinem Browser, der deine Aufgaben behält, auch wenn du die Seite schließt.
+
+Stufe 2 (später möglich): Wenn du das Grundprinzip verstanden hast, können wir über echte Server-Lösungen sprechen. Dafür gibt es Dienste wie Supabase oder Firebase, die dir Server und Datenbank abnehmen.
+
+Sollen wir mit der To-Do-App starten? Dann habe ich noch eine Frage zum Design:
+
+Wie soll die App aussehen – eher minimalistisch und clean, oder farbenfroh und verspielt?
+
+Muss ich dafür eine Domain kaufen? Können auch andere Personen auf diese Website zugreifen?
+
+21:46
+Sehr gute Fragen! Das sind genau die richtigen Überlegungen.
+
+Was ist eine Domain?
+Eine Domain ist die Adresse deiner Website im Internet – zum Beispiel meine-todo-app.de. Sie ist wie eine Hausnummer, damit andere dich finden können.
+
+Brauchst du eine Domain? Kommt drauf an:
+Nein, nicht zum Lernen und Testen. Was wir hier bauen, läuft erstmal nur auf deinem Computer. Ich erstelle eine Datei, du öffnest sie in deinem Browser – fertig. Niemand sonst kann darauf zugreifen, und das ist gut so zum Experimentieren.
+
+Ja, wenn andere darauf zugreifen sollen. Damit deine App im Internet erreichbar ist, brauchst du zwei Dinge:
+
+Hosting – ein Ort, wo deine Dateien liegen und rund um die Uhr abrufbar sind. Das ist wie ein Regal in einer öffentlichen Bibliothek statt deiner Schublade zu Hause.
+Domain (optional) – eine schöne Adresse. Ohne Domain bekommst du oft eine kryptische URL wie meine-app-abc123.netlify.app.
+Gute Nachricht: Beides kann kostenlos sein
+Es gibt Dienste, die einfache Websites kostenlos hosten:
+
+GitHub Pages – komplett kostenlos, du bekommst eine Adresse wie deinname.github.io
+Netlify – ebenfalls kostenlos, sehr einfach zu benutzen
+Vercel – beliebt bei Entwicklern, auch kostenlos
+Eine eigene Domain kostet etwa 10-15€ pro Jahr, ist aber optional.
+
+Mein Vorschlag für heute:
+Wir bauen die App erstmal lokal – also nur auf deinem Rechner. Wenn sie fertig ist und dir gefällt, zeige ich dir, wie du sie in 5 Minuten kostenlos online stellst.
+
+Einverstanden? Dann sag mir noch kurz, ob du es lieber minimalistisch oder farbenfroh magst – und ich lege los!
+
+Ok, lass hier starten, aber als Ziel nehmen, diese noch online zu stellen
+
+21:47
+Perfekt! Dann ist unser Plan:
+
+Heute: To-Do-App bauen und verstehen Danach: Online stellen mit GitHub Pages oder Netlify
+
+Bevor ich code, lass mich dir den Aufbau erklären:
+Wir bauen eine Single Page Application (SPA) – das bedeutet, alles passiert auf einer einzigen Seite, ohne dass der Browser neu laden muss. Modern und schnell.
+
+Die App wird diese Komponenten haben (Komponente = ein Baustein mit einer bestimmten Aufgabe):
+
+Header – die Überschrift oben
+Input-Feld – wo du neue Aufgaben eintippst
+Button – zum Hinzufügen
+Liste – zeigt alle Aufgaben an
+Jede Aufgabe – kann abgehakt oder gelöscht werden
+Die Daten speichern wir im Local Storage. Das funktioniert so: Jedes Mal, wenn du etwas änderst, schreibt die App die aktuelle Liste in diesen Speicher. Wenn du die Seite neu öffnest, liest sie die Liste wieder aus.
+
+Noch eine kurze Frage zum Look:
+
+Welchen Stil bevorzugst du? Das hilft mir, etwas zu bauen, das dir gefällt und das du auch wirklich benutzen willst.
+
+Q: Welchen Design-Stil bevorzugst du?
+A: Dunkel (Dark Mode)
+
+21:48
+Gute Wahl! Dark Mode ist angenehm für die Augen und sieht modern aus.
+
+Ich baue jetzt die App und erkläre dir danach jeden Teil. Einen Moment...
+
+
+Created a file, read a file
+Hier ist deine erste App! Du kannst sie oben öffnen und direkt ausprobieren.
+
+Was ich gebaut habe – und was jeder Teil macht:
+Die Datei enthält alles in einer einzigen Datei. Das ist unüblich für große Projekte, aber perfekt zum Lernen. Lass mich die wichtigsten Konzepte erklären:
+
+HTML-Struktur (Zeilen 1-60)
+html
+<div class="container">
+Ein div (Division) ist ein Container – eine unsichtbare Box, die andere Elemente gruppiert. Die class gibt ihm einen Namen, den wir im CSS ansprechen können.
+
+html
+<input type="text" id="todo-input">
+Ein input ist ein Eingabefeld. Die id ist ein eindeutiger Name – wie eine Personalnummer. Damit findet JavaScript das Element später wieder.
+
+CSS-Styling (Zeilen 10-140)
+css
+body {
+    background-color: #0d1117;
+    color: #e6edf3;
+}
+Hexadezimal-Farbcodes wie 
+#0d1117 definieren Farben. Die ersten zwei Ziffern sind Rot, dann Grün, dann Blau. Niedrige Werte = dunkel.
+
+css
+.todo-item:hover {
+    border-color: #484f58;
+}
+Der :hover Selektor bedeutet: "Wenn die Maus darüber ist". So entstehen interaktive Effekte.
+
+JavaScript-Logik (ab Zeile 150)
+javascript
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
+Hier passiert viel:
+
+let erstellt eine Variable (ein Behälter für Daten)
+localStorage.getItem() liest aus dem Speicher
+JSON.parse() wandelt Text in ein Array um
+|| [] bedeutet: "Falls nichts da ist, nimm eine leere Liste"
+javascript
+todos.push({ text: text, completed: false });
+push() fügt etwas ans Ende eines Arrays. Das Objekt in den geschweiften Klammern hat zwei Properties (Eigenschaften): text und completed.
+
+Probier es aus!
+Tippe eine Aufgabe ein und drücke Enter
+Klicke die Checkbox zum Abhaken
+Hover über eine Aufgabe – der Löschen-Button erscheint
+Schließe die Seite und öffne sie wieder – deine Aufgaben sind noch da!
+Was möchtest du als nächstes? Ich kann dir erklären, wie wir die App online stellen, oder wir können erstmal Features hinzufügen – zum Beispiel Kategorien, Fälligkeitsdaten oder eine Suchfunktion.
+
+Todo app
+Code · HTML 
+Füge bitte Kategorien, Fälligkeitsdatum, und eine Suchfunktion hinzu. Bitte mache die Kategorien so, dass ich ein DropDown sodass ich immer die gleichen Kategoriebzeichnugnen wählen kann.
+
+21:51
+Sehr gut – das sind sinnvolle Features! Ich erweitere die App jetzt.
+
+Kurz zur Erklärung, was ich hinzufüge:
+
+Dropdown (auch Select genannt) – ein Auswahlmenü, das sich aufklappt. Du wählst aus vordefinierten Optionen, statt selbst zu tippen. Das verhindert Tippfehler und hält die Kategorien einheitlich.
+
+Date Input – ein spezielles Eingabefeld für Datum. Der Browser zeigt automatisch einen Kalender an.
+
+Suchfunktion – filtert die Liste in Echtzeit. Nutzt die JavaScript-Methode filter(), die nur passende Elemente durchlässt.
+
+
+Created a file, read a file
+Fertig! Die erweiterte Version hat jetzt alle Features. Probier sie aus!
+
+Was ist neu – und wie funktioniert es?
+1. Das Dropdown (Select-Element)
+html
+<select id="category-select">
+    <option value="">Keine Kategorie</option>
+    <option value="arbeit">💼 Arbeit</option>
+</select>
+select erstellt das Dropdown-Menü. Jede option ist eine Auswahlmöglichkeit. Der value ist der interne Wert (den JavaScript benutzt), der Text dazwischen ist das, was du siehst.
+
+2. Datumsfeld mit Kalender
+html
+<input type="date" id="due-date">
+Der Browser erkennt type="date" und zeigt automatisch einen Kalender an. Das Datum wird im Format YYYY-MM-DD gespeichert (z.B. 2024-03-15).
+
+3. Die Suchfunktion
+javascript
+document.getElementById('search-input').addEventListener('input', function(e) {
+    searchQuery = e.target.value;
+    renderTodos();
+});
+addEventListener bedeutet: "Höre auf dieses Ereignis". Das input-Event feuert bei jeder Tastatureingabe. Dadurch wird die Liste sofort gefiltert während du tippst – das nennt man Echtzeit-Suche oder Live-Search.
+
+4. Die Filter-Logik
+javascript
+todos.filter(todo => {
+    return todo.text.toLowerCase().includes(searchQuery.toLowerCase());
+});
+filter() ist eine Array-Methode, die nur Elemente behält, für die die Bedingung true ist. includes() prüft, ob ein Text in einem anderen vorkommt. toLowerCase() macht alles klein, damit "ARBEIT" auch "arbeit" findet.
+
+5. Farbige Kategorie-Badges
+css
+.category-arbeit { background-color: #1f6feb33; color: #58a6ff; }
+Das 33 am Ende der Farbe ist der Alpha-Kanal (Transparenz). 33 in Hexadezimal = 20% Deckkraft. So bekommt jede Kategorie ihre eigene Farbe.
+
+6. Intelligentes Fälligkeitsdatum
+Die App zeigt nicht nur das Datum, sondern interpretiert es:
+
+Rot = Überfällig
+Orange = Heute fällig
+Gelb = In den nächsten 3 Tagen
+Teste diese Dinge:
+Erstelle Aufgaben mit verschiedenen Kategorien
+Setze ein Fälligkeitsdatum für gestern – es wird rot!
+Tippe in die Suche – die Liste filtert sofort
+Klicke auf die Filter-Buttons oben
+Möchtest du noch etwas anpassen, oder sollen wir die App jetzt online stellen?
+
+Todo app v2
+Code · HTML 
+Bitte die Kategorie so, dass ich selbst eine Kategorie eingeben kann, sobald ich eine eingegeben habe, erscheint diese als select beim nächsten auch auswählbar, oder ich gebe eine neue ein, dann würden beim näcshten mal beide angezeigt werden.
+
+21:55
+Das ist ein cleveres Feature! Du willst also ein dynamisches Dropdown – die Kategorien wachsen mit deiner Nutzung.
+
+Technisch nennt man das ein Combobox-Pattern: Eine Kombination aus Dropdown und Texteingabe. Ich baue das so:
+
+Ein Textfeld zum Eintippen neuer Kategorien
+Ein Dropdown daneben mit allen bisherigen Kategorien
+Die Kategorien werden auch im Local Storage gespeichert, damit sie beim nächsten Besuch noch da sind
+
+Created a file, read a file
+Fertig! Die App hat jetzt dynamische Kategorien.
+
+Was ist neu?
+Die Combobox – Textfeld + Dropdown kombiniert
+html
+<div class="category-combobox">
+    <input type="text" id="category-input" placeholder="z.B. Arbeit, Privat...">
+    <button class="combobox-toggle">▼</button>
+    <div class="category-dropdown" id="category-dropdown"></div>
+</div>
+Du kannst:
+
+Tippen – eine neue Kategorie eingeben
+Klicken auf ▼ – das Dropdown öffnet sich mit allen bisherigen Kategorien
+Auswählen – eine vorhandene Kategorie anklicken
+Zwei getrennte Speicher
+javascript
+let todos = JSON.parse(localStorage.getItem('todos-v3')) || [];
+let categories = JSON.parse(localStorage.getItem('categories')) || [];
+Jetzt speichern wir zwei Arrays im Local Storage:
+
+todos-v3 – alle Aufgaben
+categories – alle Kategorien die du je eingegeben hast
+Automatisches Hinzufügen neuer Kategorien
+javascript
+function addCategoryIfNew(category) {
+    if (category && !categories.includes(category)) {
+        categories.push(category);
+        saveCategories();
+    }
+}
+includes() prüft, ob die Kategorie schon existiert. Nur wenn nicht, wird sie hinzugefügt. So entstehen keine Duplikate.
+
+Dynamische Filter-Buttons
+Die Filter-Buttons oben werden jetzt automatisch aus deinen Kategorien generiert. Neue Kategorie erstellt? Neuer Filter-Button erscheint!
+
+Probier es aus:
+Tippe eine Aufgabe ein, gib als Kategorie "Projekt X" ein
+Erstelle eine zweite Aufgabe, klicke auf ▼ – "Projekt X" ist jetzt wählbar
+Gib eine neue Kategorie "Ideen" ein
+Schau auf die Filter-Buttons – beide Kategorien sind da!
+Du kannst Kategorien auch löschen (✕ im Dropdown)
+Gefällt dir das so? Sollen wir noch etwas anpassen, oder wollen wir die App jetzt online stellen?
+
+Todo app v3
+Code · HTML 
+Ok, ich will lernen. Was kann ich noch alles hier einbauen? Ist alles was du baust automatisch responsive?
+
+21:58
+Gute Fragen! Lass mich beide beantworten.
+
+Was bedeutet "responsive"?
+Responsive Design heißt: Die Website passt sich automatisch an verschiedene Bildschirmgrößen an – Desktop, Tablet, Handy.
+
+Nein, es ist nicht automatisch. Ich muss es bewusst einbauen. Bei deiner App habe ich es teilweise gemacht:
+
+css
+@media (max-width: 500px) {
+    .input-row {
+        flex-direction: column;
+    }
+}
+Das ist eine Media Query – eine Regel die nur gilt, wenn der Bildschirm kleiner als 500px ist. Dann werden die Eingabefelder untereinander statt nebeneinander angezeigt.
+
+Aber ich könnte noch mehr tun: größere Touch-Flächen für Handys, andere Schriftgrößen, bessere Abstände. Das wäre ein gutes Lernprojekt!
+
+Was könntest du noch einbauen?
+Hier sind Ideen, sortiert nach Schwierigkeit:
+
+Einfach (gute nächste Schritte)
+Feature	Was du lernst
+Dark/Light Mode Toggle	CSS-Variablen, Zustand speichern
+Prioritäten (Hoch/Mittel/Niedrig)	Sortier-Algorithmen
+Benachrichtigungston	Web Audio API
+Konfetti bei erledigt	Canvas-Animation
+Mittel (etwas komplexer)
+Feature	Was du lernst
+Drag & Drop	HTML5 Drag API, Array-Manipulation
+Subtasks (Unteraufgaben)	Verschachtelte Datenstrukturen
+Wiederkehrende Aufgaben	Datum-Berechnungen
+Export als CSV	Datei-Generierung im Browser
+Fortgeschritten (größere Projekte)
+Feature	Was du lernst
+Offline-Modus mit Service Worker	Progressive Web App (PWA)
+Synchronisation zwischen Geräten	Backend, Datenbanken
+Tastaturkürzel	Event-Handling, Accessibility
+Mehrere Listen/Boards (wie Trello)	Komplexere State-Verwaltung
+Was davon klingt spannend für dich? Wähle oben aus, oder nenne mir etwas anderes!
+
+Q: Was interessiert dich am meisten? (Select all that apply)
+A: Drag & Drop (Aufgaben sortieren), Dark/Light Mode Umschalter, Subtasks (Unteraufgaben), Export als PDF/CSV, Wenn eine Aufgabe angelegt wird, bitte immer eine Rakete über den Bildschirm lassen
+
+21:59
+Ich liebe die Rakete! 🚀 Das wird spaßig.
+
+Das sind vier Features plus die Raketen-Animation. Lass uns die nacheinander einbauen – so lernst du bei jedem Schritt etwas Neues.
+
+Ich starte mit allem auf einmal, aber erkläre dir danach jeden Teil einzeln. Das wird eine größere Datei, aber du bekommst eine richtig coole App!
+
+
+Created a file, read a file
+Die App ist jetzt vollgepackt mit Features! Probier sie aus – besonders die Rakete macht Spaß 🚀
+
+Was ist neu – die wichtigsten Konzepte erklärt:
+1. Dark/Light Mode mit CSS-Variablen
+css
+:root {
+    --bg-primary: #0d1117;
+    --text-primary: #e6edf3;
+}
+
+[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --text-primary: #1f2328;
+}
+CSS-Variablen (Custom Properties) beginnen mit --. Sie sind wie Platzhalter, die wir überall mit var(--name) verwenden können.
+
+:root ist das oberste Element (das <html>-Tag). Wenn wir data-theme="light" darauf setzen, überschreibt CSS automatisch alle Farbwerte. Ein einziger Klick ändert das komplette Design!
+
+2. Die Raketen-Animation
+css
+@keyframes rocketFly {
+    from { bottom: -50px; left: 20%; }
+    to { bottom: 120%; left: 80%; }
+}
+@keyframes definiert eine Animation mit Start (from) und Ende (to). Die Rakete fliegt von unten-links nach oben-rechts.
+
+javascript
+const rocket = document.createElement('div');
+rocket.className = 'rocket';
+document.body.appendChild(rocket);
+setTimeout(() => rocket.remove(), 1500);
+Wir erstellen das Element dynamisch mit JavaScript, fügen es ein, und entfernen es nach 1,5 Sekunden wieder.
+
+3. Drag & Drop
+javascript
+ondragstart="handleDragStart(event, ${index})"
+ondragover="handleDragOver(event)"
+ondrop="handleDrop(event, ${targetIndex})"
+Die HTML5 Drag & Drop API hat mehrere Events:
+
+dragstart – Ich fange an zu ziehen
+dragover – Ich ziehe über etwas drüber (muss e.preventDefault() haben!)
+drop – Ich lasse los
+Der Trick: Wir merken uns den Index des gezogenen Elements und tauschen die Position im Array.
+
+4. Subtasks (Verschachtelte Daten)
+javascript
+todos[todoIndex].subtasks.push({
+    text: text,
+    completed: false
+});
+Jedes Todo hat jetzt ein Array innerhalb eines Objekts. Das nennt man verschachtelte Datenstruktur:
+
+javascript
+{
+    text: "Einkaufen",
+    subtasks: [
+        { text: "Milch", completed: false },
+        { text: "Brot", completed: true }
+    ]
+}
+5. CSV-Export
+javascript
+const blob = new Blob([csv], { type: 'text/csv' });
+const url = URL.createObjectURL(blob);
+link.download = 'todos.csv';
+link.click();
+Ein Blob (Binary Large Object) ist wie eine Datei im Speicher. Wir erstellen eine CSV-Textdatei, generieren eine Download-URL, und simulieren einen Klick auf einen unsichtbaren Link.
+
+Teste diese Dinge:
+☀️ Klick oben rechts auf die Sonne → Light Mode!
+🚀 Füge eine Aufgabe hinzu → Rakete fliegt!
+⋮⋮ Ziehe eine Aufgabe an den Griffpunkten → Reihenfolge ändern
+▶ Klick auf "Subtasks" → Unteraufgaben hinzufügen
+📥 Klick auf "Als CSV exportieren" → Öffne die Datei in Excel
+Bist du bereit, die App jetzt online zu stellen? Oder möchtest du noch etwas anpassen?
+
+Todo app v4
+Code · HTML 
+Ok es funktioniert. Wie bekomme ich die Seite allgemein ins Internet, ohne Kosten und ohne Risiko? Erkläre mir pro und cons. Wenn ich damit in Zukunft viel machen (mehrer Website und Spiele sowie eigene Domains) will, was brauche ich und mit welchen Kosten ist zu rechnen?
+
+22:09
+Sehr gute Fragen! Lass mich das strukturiert durchgehen.
+
+Teil 1: Kostenlos online stellen – deine Optionen
+Für deine To-Do-App gibt es drei solide kostenlose Optionen:
+
+GitHub Pages
+Was ist das? GitHub ist eine Plattform für Code-Verwaltung. Pages ist deren kostenloses Hosting für statische Websites.
+
+Vorteile:
+
+Komplett kostenlos, keine versteckten Kosten
+Sehr zuverlässig (gehört Microsoft)
+Du lernst Git – eine Kernkompetenz in der Softwareentwicklung
+Unbegrenzte Projekte möglich
+Deine Adresse: deinname.github.io
+Nachteile:
+
+Lernkurve: Git-Grundlagen nötig (ca. 30 Min lernen)
+Nur für statische Seiten (HTML/CSS/JS – genau das was wir haben)
+Code ist standardmäßig öffentlich sichtbar (für Lernprojekte kein Problem)
+Netlify
+Was ist das? Ein moderner Hosting-Dienst speziell für Frontend-Projekte.
+
+Vorteile:
+
+Extrem einfach: Datei per Drag & Drop hochladen
+Automatische HTTPS-Verschlüsselung
+Kostenlose Subdomain: deinprojekt.netlify.app
+Eigene Domain später einfach anschließbar
+Nachteile:
+
+Kostenlos nur bis 100 GB Traffic/Monat (für Lernprojekte mehr als genug)
+Amerikanisches Unternehmen (Datenschutz-Überlegung)
+Vercel
+Was ist das? Ähnlich wie Netlify, beliebt bei professionellen Entwicklern.
+
+Vorteile:
+
+Sehr schnelle Server weltweit
+Gut für komplexere Projekte später (React, Next.js)
+Kostenlose Subdomain: deinprojekt.vercel.app
+Nachteile:
+
+Interface etwas technischer
+Kostenlos nur für persönliche Projekte
+Meine Empfehlung für dich
+Starte mit Netlify – in 2 Minuten online, null Risiko. Später, wenn du mehr Projekte machst, lohnt sich GitHub Pages wegen der Git-Kenntnisse.
+
+Teil 2: Risiken? Fast keine.
+Datenschutz: Deine App speichert alles nur im Browser des Nutzers (Local Storage). Es werden keine Daten an Server gesendet. DSGVO-technisch unproblematisch.
+
+Kosten: Bei allen drei Anbietern: Kostenlos = wirklich kostenlos. Keine Kreditkarte nötig.
+
+Sicherheit: Statische Seiten haben kaum Angriffsfläche – kein Server, keine Datenbank, nichts zu hacken.
+
+Teil 3: Wenn du größer denken willst
+Du fragst nach mehreren Websites, Spielen und eigenen Domains. Hier eine Übersicht:
+
+Was du brauchst – aufgeteilt nach Ambitionslevel
+Level 1: Hobby-Projekte (0€)
+
+GitHub Pages oder Netlify kostenlos
+Mehrere Projekte möglich
+Subdomains wie projekt1.github.io, projekt2.netlify.app
+Level 2: Eigene Domain (10-15€/Jahr)
+
+Domain kaufen bei Namecheap, Porkbun, oder IONOS
+Domain mit Netlify/GitHub verbinden (kostenlos)
+Deine Adresse: www.deinname.de
+Level 3: Dynamische Projekte mit Datenbank (0-20€/Monat)
+
+Für: User-Accounts, gespeicherte Daten, Multiplayer-Spiele
+Backend-as-a-Service: Supabase oder Firebase (kostenloser Einstieg)
+Oder eigener Server: ab ca. 5€/Monat bei Hetzner, Netcup
+Level 4: Professionell (20-100€/Monat)
+
+Mehrere Domains
+Schnelle Server
+E-Mail-Hosting
+Automatische Backups
+Kostenübersicht
+Was	Kosten	Wofür
+Hosting (statisch)	0€	HTML/CSS/JS Seiten
+Domain (.de)	8-12€/Jahr	Eigene Adresse
+Domain (.com)	10-15€/Jahr	Internationale Adresse
+Backend (Supabase Free)	0€	Kleine Datenbank, Auth
+Backend (Supabase Pro)	~25€/Monat	Größere Projekte
+Eigener Server	5-20€/Monat	Volle Kontrolle
+Nächster Schritt?
+Soll ich dir zeigen, wie du die App jetzt auf Netlify hochlädst? Das dauert wirklich nur 2 Minuten – du ziehst die Datei einfach in den Browser.
+
+Oder möchtest du direkt mit GitHub anfangen, um Git zu lernen? Das ist nachhaltiger, aber braucht ca. 15-20 Minuten Setup.
+
+Q: Wie möchtest du starten?
+A: GitHub Pages (20 Min, lerne Git)
+
+22:11
+Gute Wahl! Git ist eine der wichtigsten Fähigkeiten in der Softwareentwicklung. Lass uns das Schritt für Schritt machen.
+
+Was ist Git überhaupt?
+Git ist ein Versionskontrollsystem. Stell dir vor, du schreibst ein Word-Dokument und speicherst ständig neue Versionen: dokument_v1.docx, dokument_v2_final.docx, dokument_v2_final_WIRKLICH.docx...
+
+Git macht das automatisch und elegant. Es speichert jeden Zwischenstand (genannt Commit) und du kannst jederzeit zurückspringen.
+
+GitHub ist eine Website, die Git-Projekte hostet – wie eine Cloud für deinen Code. GitHub Pages nutzt diese Infrastruktur, um Websites zu veröffentlichen.
+
+Schritt 1: GitHub-Account erstellen
+Gehe zu github.com
+Klicke auf "Sign up"
+Wähle einen Benutzernamen (wird Teil deiner URL: benutzername.github.io)
+E-Mail bestätigen
+Wichtig: Wähle deinen Benutzernamen mit Bedacht – er wird öffentlich sichtbar und ist deine Web-Adresse!
+
+Schritt 2: Git auf deinem Computer installieren
+Je nach Betriebssystem:
+
+Mac: Öffne das Terminal (Spotlight → "Terminal") und tippe:
+
+git --version
+Falls nicht installiert, wird macOS dich fragen, ob du die Developer Tools installieren willst → Ja klicken.
+
+Windows: Lade Git von git-scm.com herunter und installiere es. Alle Standardeinstellungen sind okay.
+
+Schritt 3: Repository erstellen
+Ein Repository (kurz: Repo) ist ein Projektordner, der von Git überwacht wird.
+
+Auf GitHub: Klicke oben rechts auf "+" → "New repository"
+Name: todo-app (oder was du willst)
+Public auswählen (muss öffentlich sein für kostenloses Hosting)
+"Add a README file" ankreuzen
+Klicke "Create repository"
+Schritt 4: Repository auf deinen Computer klonen
+Klonen bedeutet: Eine Kopie des Repos auf deinen Computer herunterladen.
+
+Auf der GitHub-Seite deines Repos: Klicke den grünen "Code"-Button
+Kopiere die HTTPS-URL (sieht aus wie https://github.com/deinname/todo-app.git)
+Öffne Terminal (Mac) oder Git Bash (Windows) und tippe:
+bash
+cd ~/Desktop
+git clone https://github.com/DEINNAME/todo-app.git
+cd todo-app
+Erklärung:
+
+cd ~/Desktop → Wechsle zum Desktop
+git clone URL → Lade das Repo herunter
+cd todo-app → Gehe in den Ordner
+Schritt 5: Deine App-Datei hinzufügen
+Jetzt musst du die HTML-Datei in diesen Ordner kopieren.
+
+Wichtig: Die Datei muss index.html heißen – das ist die Standard-Startseite im Web.
+
+Lade die Datei todo-app-v4.html herunter (aus unserer Konversation)
+Benenne sie um in index.html
+Verschiebe sie in den todo-app-Ordner auf deinem Desktop
+Schritt 6: Änderungen committen und hochladen
+Jetzt kommt der eigentliche Git-Teil:
+
+bash
+git add index.html
+git commit -m "Meine erste To-Do App"
+git push
+```
+
+Erklärung:
+- `git add` → "Merke dir diese Datei für den nächsten Commit"
+- `git commit -m "Nachricht"` → "Speichere diesen Zwischenstand mit dieser Beschreibung"
+- `git push` → "Lade alles auf GitHub hoch"
+
+Beim ersten `push` fragt Git nach deinen GitHub-Zugangsdaten.
+
+---
+
+## Schritt 7: GitHub Pages aktivieren
+
+1. Gehe zu deinem Repo auf GitHub
+2. Klicke auf **"Settings"** (Zahnrad-Tab)
+3. Im linken Menü: **"Pages"**
+4. Unter "Source": Wähle **"main"** Branch und **"/ (root)"**
+5. Klicke **"Save"**
+
+**Warte 1-2 Minuten** – GitHub baut deine Seite.
+
+---
+
+## Schritt 8: Fertig! 🎉
+
+Deine App ist jetzt live unter:
+```
+https://DEINNAME.github.io/todo-app
+Zusammenfassung der Git-Befehle
+Befehl	Was er macht
+git clone URL	Repo herunterladen
+git add datei	Datei zum Commit vormerken
+git add .	ALLE Änderungen vormerken
+git commit -m "text"	Zwischenstand speichern
+git push	Auf GitHub hochladen
+git pull	Neueste Version herunterladen
+git status	Zeigt, was sich geändert hat
+Bei welchem Schritt bist du?
+Sag mir Bescheid, wenn du irgendwo hängst – ich helfe dir durch! Oder wenn du fertig bist, schick mir deine URL und wir feiern 🚀
+
+Brauche ich Github auf dem Desktop oder kann ich es komplett im browswer machen? Gibt es Vorteile durch die Desktop version? Bitte erkläre dass und dann ausführlich ab Schritt 4 - mit mehr erklärung warum ich das mache und wie ich zukünfitg, die website mit Clause weiterwentwickeln würde. Was wäre der beste Arbeitsmodus? Muss ich immer code kopieren, dann ich clause direkt damit verbinden? Was ist claude code? Kann ich den GitHUB copilot nehmen oder auf Claude modellen aufbaut?
+
+22:43
+Exzellente Fragen! Lass mich das alles durchgehen.
+
+Browser vs. Desktop: Was brauchst du wirklich?
+Kurze Antwort: Für den Anfang reicht der Browser komplett. Du kannst alles auf github.com machen.
+
+Option A: Nur im Browser (für dich jetzt ideal)
+Vorteile:
+
+Keine Installation nötig
+Funktioniert auf jedem Computer
+Für einfache Projekte völlig ausreichend
+Du kannst Dateien direkt hochladen und bearbeiten
+Nachteile:
+
+Unpraktisch bei vielen Dateien gleichzeitig
+Keine lokale Vorschau vor dem Hochladen
+Begrenzte Funktionen
+Option B: Git auf dem Desktop (später sinnvoll)
+Vorteile:
+
+Schneller bei größeren Projekten
+Offline arbeiten möglich
+Mehr Kontrolle und Profi-Funktionen
+Integration mit Code-Editoren wie VS Code
+Nachteile:
+
+Lernkurve für Terminal-Befehle
+Installation nötig
+Meine Empfehlung
+Starte im Browser. Wenn du später merkst, dass du öfter entwickelst und es umständlich wird, steige auf Desktop um. Das ist ein natürlicher Übergang.
+
+Schritt-für-Schritt: Alles im Browser
+Schritt 1-3: Account und Repository erstellen
+Das hast du wahrscheinlich schon verstanden. Falls nicht:
+
+github.com → Sign up → Account erstellen
+Oben rechts "+" → "New repository"
+Name: todo-app, Public, "Add README" ankreuzen, Create
+Schritt 4: Deine App-Datei hochladen
+Warum dieser Schritt? Dein Repository ist aktuell leer (nur eine README-Datei). Wir müssen deine App-Datei dort hineinlegen. GitHub Pages sucht automatisch nach einer index.html – das ist die Webstandard-Startseite.
+
+So geht's:
+
+Zuerst: Lade dir die aktuelle App-Datei herunter (todo-app-v4.html aus unserer Konversation)
+Benenne die Datei um: todo-app-v4.html → index.html
+Rechtsklick → Umbenennen
+Der Name index.html ist wichtig – Browser suchen automatisch danach
+Gehe zu deinem Repository auf GitHub
+Klicke auf "Add file" → "Upload files"
+Ziehe deine index.html Datei ins Fenster (Drag & Drop)
+Unten siehst du "Commit changes"
+Das ist wie "Speichern mit Kommentar"
+Schreibe eine kurze Beschreibung: "Erste Version meiner To-Do App"
+Klicke den grünen "Commit changes" Button
+Was ist gerade passiert? Du hast einen Commit gemacht – einen gespeicherten Snapshot deines Projekts. Git merkt sich: "Am [Datum] hat [du] diese Datei hinzugefügt." Du kannst jederzeit zu diesem Punkt zurückkehren.
+
+Schritt 5: GitHub Pages aktivieren
+Warum dieser Schritt? GitHub weiß noch nicht, dass du eine Website willst. Standardmäßig ist ein Repository nur ein Code-Speicher. Wir müssen GitHub sagen: "Mach daraus eine öffentliche Website."
+
+So geht's:
+
+In deinem Repository: Klicke auf "Settings" (oben, das Zahnrad)
+Im linken Menü: Scrolle zu "Pages"
+Unter "Source":
+Branch: Wähle "main"
+Folder: Wähle "/ (root)"
+Klicke "Save"
+Warte 1-2 Minuten
+Oben erscheint: "Your site is live at https://deinname.github.io/todo-app"
+Was ist gerade passiert? GitHub hat einen Server aktiviert, der deine index.html Datei öffentlich ausliefert. Jeder mit dem Link kann jetzt deine App nutzen!
+
+Schritt 6: Zukünftige Änderungen hochladen
+Warum dieser Schritt wichtig ist: Jedes Mal wenn wir zusammen ein Feature einbauen, musst du die neue Version hochladen.
+
+So geht's:
+
+Du fragst mich: "Füge Feature X hinzu"
+Ich gebe dir eine neue index.html
+Du gehst zu GitHub → Dein Repository
+Klicke auf die Datei index.html
+Klicke oben rechts auf den Stift (Edit-Symbol)
+Lösche den gesamten alten Code (Strg+A, dann Entfernen)
+Kopiere den neuen Code von mir und füge ihn ein
+Unten: "Commit changes" mit Beschreibung wie "Subtasks hinzugefügt"
+Nach 1-2 Minuten ist die Website aktualisiert
+Der beste Arbeitsmodus mit Claude
+Jetzt zur wichtigen Frage: Wie entwickeln wir effizient zusammen weiter?
+
+Aktuell: Copy & Paste (funktioniert, aber manuell)
+So wie wir es jetzt machen:
+
+Du beschreibst was du willst
+Ich generiere Code
+Du kopierst den Code
+Du lädst ihn auf GitHub hoch
+Vorteil: Einfach, keine Tools nötig Nachteil: Viel Kopieren, fehleranfällig bei großen Dateien
+
+Besser: Claude mit Datei-Download
+Was wir schon nutzen – ich erstelle Dateien, du lädst sie herunter:
+
+Du beschreibst was du willst
+Ich erstelle die Datei (wie die todo-app-v4.html)
+Du lädst sie herunter
+Du lädst sie auf GitHub hoch
+Vorteil: Kein Copy & Paste nötig Nachteil: Immer noch manuelle Schritte
+
+Fortgeschritten: Claude Code
+Was ist Claude Code?
+
+Claude Code ist ein Kommandozeilen-Tool von Anthropic, das Claude direkt in dein Entwicklungs-Setup integriert. Es kann:
+
+Dateien auf deinem Computer lesen und schreiben
+Terminal-Befehle ausführen
+Git-Commits automatisch machen
+Dein gesamtes Projekt verstehen
+Beispiel-Workflow:
+
+Du tippst: "Füge einen Dark Mode hinzu"
+Claude Code: Liest deinen Code, ändert ihn, testet ihn, committed auf GitHub
+Voraussetzungen:
+
+Node.js muss installiert sein
+Terminal-Grundkenntnisse
+Kostet Geld (API-Nutzung wird abgerechnet)
+Für dich jetzt: Noch zu früh. Erst wenn du regelmäßig entwickelst und der manuelle Workflow nervt.
+
+Alternative: GitHub Copilot
+Was ist GitHub Copilot?
+
+Ein KI-Assistent von GitHub (Microsoft), der direkt in Code-Editoren wie VS Code läuft. Er schlägt Code vor während du tippst.
+
+Wichtig: Copilot basiert auf OpenAI-Modellen (GPT), nicht auf Claude.
+
+Vorteile:
+
+Direkt in VS Code integriert
+Sehr schnell für kleine Vorschläge
+10$/Monat (für Studenten kostenlos)
+Nachteile:
+
+Weniger gut im Erklären und Verstehen komplexer Anfragen
+Kann keine ganzen Projekte planen wie Claude
+Kein Dialog möglich – nur Autovervollständigung
+Gibt es Claude-Integration für VS Code?
+Ja! Es gibt mehrere Optionen:
+
+Continue.dev (kostenlos, Open Source)
+VS Code Extension
+Kann mit Claude API verbunden werden
+Du brauchst einen Anthropic API-Key (ca. 0,01-0,05€ pro Anfrage)
+Cursor (eigener Code-Editor)
+Basiert auf VS Code
+Hat Claude eingebaut
+20$/Monat
+Claude Code (Terminal-Tool)
+Wie oben beschrieben
+API-Kosten
+Meine Empfehlung für deinen Weg
+Jetzt (Anfänger):
+
+GitHub im Browser
+Claude im Chat (so wie jetzt)
+Dateien herunterladen und manuell hochladen
+Kosten: 0€
+In 2-3 Monaten (wenn du regelmäßig entwickelst):
+
+VS Code installieren
+Git auf Desktop
+Continue.dev mit Claude API
+Kosten: ca. 5-10€/Monat für API
+Später (wenn du Profi werden willst):
+
+Claude Code für automatisierte Workflows
+Eigene Domains
+Komplexere Projekte mit Backend
+Kosten: 20-50€/Monat
+Zusammenfassung
+Frage	Antwort
+Browser oder Desktop?	Browser reicht für jetzt
+Muss ich Code kopieren?	Ja, vorerst – oder Datei-Download nutzen
+Was ist Claude Code?	Terminal-Tool für automatisierte Entwicklung
+GitHub Copilot mit Claude?	Nein, Copilot nutzt GPT, nicht Claude
+Claude in VS Code?	Ja, über Continue.dev oder Cursor
+Bist du bereit, Schritt 4-6 im Browser durchzuführen? Sag mir Bescheid, wenn du irgendwo hängst – ich führe dich durch!
+
+GitHub sagt mir, wenn ich versuche die index.html File hochzuladen "we cant process that file"
+
+22:54
+Das ist ein bekanntes Problem! GitHub hat manchmal Schwierigkeiten mit bestimmten Dateien. Es gibt mehrere Lösungen:
+
+Lösung 1: Datei direkt im Browser erstellen (empfohlen)
+Statt die Datei hochzuladen, erstellen wir sie direkt auf GitHub:
+
+Gehe zu deinem Repository auf GitHub
+Klicke auf "Add file" → "Create new file"
+Oben im Namensfeld: Tippe index.html
+Im großen Textfeld darunter: Hier musst du den Code einfügen
+Ich gebe dir jetzt den Code zum Kopieren – scrolle in unserer Konversation zur letzten App-Version (todo-app-v4.html) und kopiere den gesamten Inhalt
+Füge ihn in das Textfeld ein (Strg+V oder Cmd+V)
+Unten: Klicke "Commit changes"
+Lass mich dir den Code nochmal geben
+Damit du nicht scrollen musst, hier ist der direkte Weg:
+
+
+Getting the todo app code to provide for GitHub upload
+
+Getting the todo app code to provide for GitHub upload
+Done
+Die Datei ist über 1000 Zeilen lang – das kann beim Hochladen Probleme machen. Lass mich dir eine saubere Kopie erstellen, die du direkt im GitHub-Editor einfügen kannst:
+
+
+Ran a command, read a file
+Hier ist die Datei als index.html – der richtige Name für GitHub Pages.
+
+So gehst du jetzt vor:
+Methode A: Datei im GitHub-Editor erstellen (empfohlen)
+Lade die index.html Datei herunter (oben)
+Öffne die Datei mit einem Texteditor:
+Windows: Rechtsklick → "Öffnen mit" → Editor/Notepad
+Mac: Rechtsklick → "Öffnen mit" → TextEdit (wichtig: Format → "Reiner Text" wählen)
+Wähle alles aus (Strg+A / Cmd+A) und kopiere (Strg+C / Cmd+C)
+Auf GitHub:
+Gehe zu deinem Repository
+Klicke "Add file" → "Create new file"
+Dateiname: index.html
+Im großen Feld: Einfügen (Strg+V / Cmd+V)
+Unten: "Commit changes"
+Methode B: Falls das auch nicht klappt
+Manchmal blockiert GitHub große Einfügungen. Alternative:
+
+Lösche dein Repository und erstelle ein neues
+Diesmal: NICHT "Add README" ankreuzen
+GitHub zeigt dir dann Optionen – wähle "uploading an existing file"
+Jetzt sollte der Upload funktionieren
+Welche Methode probierst du? Sag mir, ob es klappt oder wo es hakt!
+
+Index
+Code · HTML 
+
+
+Next time, try this in Cowork
+
+Hand off complex tasks for Claude to handle independently. Come back to finished results.
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Todo app v4 · HTML
+Copy
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine To-Do App</title>
+    
+    <style>
+        /* ========== CSS-VARIABLEN (Custom Properties) ========== */
+        /* 
+         * CSS-Variablen beginnen mit -- und werden mit var() verwendet.
+         * So können wir Farben an EINER Stelle definieren und überall nutzen.
+         * Das macht den Dark/Light Mode Switch möglich!
+         */
+        :root {
+            /* Dark Mode Farben (Standard) */
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --border-color: #30363d;
+            --border-hover: #484f58;
+            --text-primary: #e6edf3;
+            --text-secondary: #7d8590;
+            --accent-blue: #58a6ff;
+            --accent-green: #238636;
+            --accent-green-hover: #2ea043;
+            --accent-red: #f85149;
+            --accent-yellow: #d29922;
+        }
+
+        /* Light Mode Farben */
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f8fa;
+            --bg-tertiary: #e6e9ec;
+            --border-color: #d0d7de;
+            --border-hover: #8c959f;
+            --text-primary: #1f2328;
+            --text-secondary: #656d76;
+            --accent-blue: #0969da;
+            --accent-green: #1a7f37;
+            --accent-green-hover: #2da44e;
+            --accent-red: #cf222e;
+            --accent-yellow: #9a6700;
+        }
+
+        /* ========== GRUNDEINSTELLUNGEN ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 40px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== HEADER MIT THEME TOGGLE ========== */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-blue);
+            transform: rotate(20deg);
+        }
+
+        /* ========== RAKETEN-ANIMATION ========== */
+        /*
+         * Die Rakete fliegt von unten links nach oben rechts.
+         * @keyframes definiert eine Animation mit Start (from) und Ende (to).
+         * position: fixed bedeutet: relativ zum Browserfenster, nicht zur Seite.
+         */
+        .rocket {
+            position: fixed;
+            font-size: 2.5rem;
+            pointer-events: none; /* Klicks gehen durch die Rakete hindurch */
+            z-index: 9999;
+            animation: rocketFly 1.5s ease-out forwards;
+        }
+
+        @keyframes rocketFly {
+            from {
+                bottom: -50px;
+                left: 20%;
+                transform: rotate(-45deg) scale(1);
+                opacity: 1;
+            }
+            to {
+                bottom: 120%;
+                left: 80%;
+                transform: rotate(-45deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Rauch-Partikel hinter der Rakete */
+        .smoke {
+            position: fixed;
+            font-size: 1.5rem;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.7;
+            animation: smokeFade 1s ease-out forwards;
+        }
+
+        @keyframes smokeFade {
+            from {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* ========== SUCHLEISTE ========== */
+        .search-section {
+            margin-bottom: 24px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s, background-color 0.3s;
+        }
+
+        #search-input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        #search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        /* ========== EINGABEBEREICH ========== */
+        .input-section {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .input-row:last-child {
+            margin-bottom: 0;
+        }
+
+        #todo-input {
+            flex: 1;
+            padding: 12px 16px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s, background-color 0.3s;
+        }
+
+        #todo-input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        /* ========== KATEGORIE-COMBOBOX ========== */
+        .category-combobox {
+            position: relative;
+            flex: 1;
+        }
+
+        #category-input {
+            width: 100%;
+            padding: 12px 40px 12px 16px;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s, background-color 0.3s;
+        }
+
+        #category-input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        #category-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .combobox-toggle {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+
+        .combobox-toggle:hover {
+            color: var(--text-primary);
+        }
+
+        .category-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+
+        .category-dropdown.show {
+            display: block;
+        }
+
+        .category-option {
+            padding: 10px 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.15s;
+        }
+
+        .category-option:hover {
+            background-color: var(--bg-tertiary);
+        }
+
+        .category-delete {
+            background: none;
+            border: none;
+            color: var(--accent-red);
+            cursor: pointer;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.2s, background-color 0.2s;
+        }
+
+        .category-option:hover .category-delete {
+            opacity: 1;
+        }
+
+        .no-categories {
+            padding: 12px 16px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* ========== DATUM-EINGABE ========== */
+        #due-date {
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s, background-color 0.3s;
+        }
+
+        #due-date:focus {
+            border-color: var(--accent-blue);
+        }
+
+        /* ========== BUTTONS ========== */
+        .add-btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--accent-green);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+        }
+
+        .add-btn:hover {
+            background-color: var(--accent-green-hover);
+        }
+
+        /* Export Button */
+        .export-btn {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .export-btn:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        /* ========== TOOLBAR ========== */
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* ========== FILTER-TABS ========== */
+        .filter-section {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            background-color: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        /* ========== STATISTIK ========== */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--bg-tertiary);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========== AUFGABENLISTE ========== */
+        .todo-list {
+            list-style: none;
+        }
+
+        /* ========== DRAG & DROP STYLES ========== */
+        /*
+         * .dragging = das Element das gerade gezogen wird
+         * .drag-over = das Element über dem man schwebt
+         */
+        .todo-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+            cursor: grab; /* Zeigt an, dass man ziehen kann */
+        }
+
+        .todo-item:hover {
+            border-color: var(--border-hover);
+        }
+
+        .todo-item.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+
+        .todo-item.drag-over {
+            border-color: var(--accent-blue);
+            border-style: dashed;
+        }
+
+        /* Drag Handle (die Griffpunkte links) */
+        .drag-handle {
+            color: var(--text-secondary);
+            margin-right: 12px;
+            cursor: grab;
+            font-size: 1.2rem;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+            user-select: none;
+        }
+
+        .todo-item:hover .drag-handle {
+            opacity: 1;
+        }
+
+        .todo-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 14px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--accent-green);
+            flex-shrink: 0;
+        }
+
+        .todo-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .todo-text {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+        }
+
+        .todo-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+        }
+
+        .category-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .due-date-badge {
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .due-date-badge.overdue {
+            color: var(--accent-red);
+        }
+
+        .due-date-badge.due-today {
+            color: var(--accent-yellow);
+        }
+
+        .due-date-badge.due-soon {
+            color: var(--accent-yellow);
+        }
+
+        .todo-item.completed .todo-text {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+        }
+
+        .todo-item.completed .category-badge,
+        .todo-item.completed .due-date-badge {
+            opacity: 0.5;
+        }
+
+        .todo-actions {
+            display: flex;
+            gap: 8px;
+            margin-left: 12px;
+            flex-shrink: 0;
+        }
+
+        .action-btn {
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            border: none;
+            border-radius: 6px;
+            background-color: transparent;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s, background-color 0.2s;
+        }
+
+        .todo-item:hover .action-btn {
+            opacity: 1;
+        }
+
+        .subtask-btn {
+            color: var(--accent-blue);
+        }
+
+        .subtask-btn:hover {
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        .delete-btn {
+            color: var(--accent-red);
+        }
+
+        .delete-btn:hover {
+            background-color: rgba(248, 81, 73, 0.1);
+        }
+
+        /* ========== SUBTASKS ========== */
+        /*
+         * Subtasks sind eingerückt unter der Hauptaufgabe.
+         * margin-left rückt sie ein.
+         */
+        .subtasks {
+            margin-top: 12px;
+            margin-left: 34px;
+            border-left: 2px solid var(--border-color);
+            padding-left: 16px;
+        }
+
+        .subtask-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .subtask-item input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: var(--accent-green);
+        }
+
+        .subtask-item.completed span {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+        }
+
+        .subtask-item .delete-subtask {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: var(--accent-red);
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 0.75rem;
+        }
+
+        .subtask-item:hover .delete-subtask {
+            opacity: 1;
+        }
+
+        /* Neuen Subtask hinzufügen */
+        .add-subtask-form {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .add-subtask-form input {
+            flex: 1;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+        }
+
+        .add-subtask-form input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .add-subtask-form button {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--accent-blue);
+            color: white;
+            cursor: pointer;
+        }
+
+        /* ========== LEERE LISTE ========== */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state span {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        /* ========== LABELS ========== */
+        .input-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 500px) {
+            .input-row {
+                flex-direction: column;
+            }
+            
+            #due-date {
+                width: 100%;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-section {
+                justify-content: center;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .theme-toggle {
+                position: static;
+                margin: 0 auto 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 To-Do Liste</h1>
+            <p>Organisiere deinen Tag</p>
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle" onclick="toggleTheme()" title="Farbschema wechseln">
+                <span id="theme-icon">☀️</span>
+            </button>
+        </header>
+
+        <!-- SUCHLEISTE -->
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="search-input" 
+                placeholder="🔍 Aufgaben durchsuchen..."
+                autocomplete="off"
+            >
+        </div>
+
+        <!-- EINGABEBEREICH -->
+        <div class="input-section">
+            <div class="input-row">
+                <input 
+                    type="text" 
+                    id="todo-input" 
+                    placeholder="Was möchtest du erledigen?"
+                    autocomplete="off"
+                >
+            </div>
+            
+            <div class="input-row">
+                <div class="input-group" style="flex: 1;">
+                    <label class="input-label">Kategorie</label>
+                    <div class="category-combobox">
+                        <input 
+                            type="text" 
+                            id="category-input" 
+                            placeholder="Tippen oder wählen..."
+                            autocomplete="off"
+                        >
+                        <button class="combobox-toggle" onclick="toggleCategoryDropdown()" type="button">▼</button>
+                        <div class="category-dropdown" id="category-dropdown"></div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label" for="due-date">Fällig am</label>
+                    <input type="date" id="due-date">
+                </div>
+                
+                <button class="add-btn" onclick="addTodo()">Hinzufügen</button>
+            </div>
+        </div>
+
+        <!-- TOOLBAR: Filter + Export -->
+        <div class="toolbar">
+            <div class="filter-section" id="filter-section"></div>
+            <button class="export-btn" onclick="exportToCSV()">📥 Als CSV exportieren</button>
+        </div>
+
+        <!-- STATISTIK -->
+        <div class="stats">
+            <span id="total-count">0 Aufgaben</span>
+            <span id="completed-count">0 erledigt</span>
+        </div>
+
+        <!-- AUFGABENLISTE -->
+        <ul class="todo-list" id="todo-list"></ul>
+    </div>
+
+    <script>
+        // ========== DATEN ==========
+        let todos = JSON.parse(localStorage.getItem('todos-v4')) || [];
+        let categories = JSON.parse(localStorage.getItem('categories')) || [];
+        let currentFilter = 'alle';
+        let searchQuery = '';
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+
+        // Theme beim Laden anwenden
+        if (currentTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.getElementById('theme-icon').textContent = '🌙';
+        }
+
+        // ========== THEME TOGGLE ==========
+        /*
+         * Wir ändern ein data-Attribut auf dem <html> Element.
+         * CSS erkennt [data-theme="light"] und wendet andere Farben an.
+         */
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            
+            if (currentTheme === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.textContent = '🌙';
+                currentTheme = 'light';
+            } else {
+                html.removeAttribute('data-theme');
+                icon.textContent = '☀️';
+                currentTheme = 'dark';
+            }
+            
+            localStorage.setItem('theme', currentTheme);
+        }
+
+        // ========== RAKETEN-ANIMATION ==========
+        /*
+         * Wir erstellen ein <div> Element dynamisch mit JavaScript,
+         * fügen es zur Seite hinzu, und entfernen es nach der Animation.
+         */
+        function launchRocket() {
+            // Rakete erstellen
+            const rocket = document.createElement('div');
+            rocket.className = 'rocket';
+            rocket.textContent = '🚀';
+            document.body.appendChild(rocket);
+
+            // Rauchpartikel erstellen
+            let smokeCount = 0;
+            const smokeInterval = setInterval(() => {
+                if (smokeCount >= 8) {
+                    clearInterval(smokeInterval);
+                    return;
+                }
+                
+                const smoke = document.createElement('div');
+                smoke.className = 'smoke';
+                smoke.textContent = '💨';
+                
+                // Position basierend auf der Animation berechnen
+                const progress = smokeCount / 8;
+                smoke.style.left = (20 + progress * 60) + '%';
+                smoke.style.bottom = (-50 + progress * 150) + '%';
+                
+                document.body.appendChild(smoke);
+                
+                // Rauch nach Animation entfernen
+                setTimeout(() => smoke.remove(), 1000);
+                
+                smokeCount++;
+            }, 150);
+
+            // Rakete nach Animation entfernen
+            setTimeout(() => rocket.remove(), 1500);
+        }
+
+        // ========== SPEICHERN ==========
+        function saveTodos() {
+            localStorage.setItem('todos-v4', JSON.stringify(todos));
+        }
+
+        function saveCategories() {
+            localStorage.setItem('categories', JSON.stringify(categories));
+        }
+
+        // ========== HILFSFUNKTIONEN ==========
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return null;
+            
+            const date = new Date(dateString);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            const compareDate = new Date(date);
+            compareDate.setHours(0, 0, 0, 0);
+            
+            if (compareDate.getTime() === today.getTime()) {
+                return { text: 'Heute', status: 'due-today' };
+            } else if (compareDate.getTime() === tomorrow.getTime()) {
+                return { text: 'Morgen', status: 'due-soon' };
+            } else if (compareDate < today) {
+                return { text: 'Überfällig', status: 'overdue' };
+            } else {
+                const diffTime = compareDate - today;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                
+                if (diffDays <= 3) {
+                    return { 
+                        text: date.toLocaleDateString('de-DE', { day: 'numeric', month: 'short' }), 
+                        status: 'due-soon' 
+                    };
+                }
+                return { 
+                    text: date.toLocaleDateString('de-DE', { day: 'numeric', month: 'short' }), 
+                    status: '' 
+                };
+            }
+        }
+
+        // ========== KATEGORIE-DROPDOWN ==========
+        function toggleCategoryDropdown() {
+            const dropdown = document.getElementById('category-dropdown');
+            dropdown.classList.toggle('show');
+            if (dropdown.classList.contains('show')) {
+                renderCategoryDropdown();
+            }
+        }
+
+        function renderCategoryDropdown() {
+            const dropdown = document.getElementById('category-dropdown');
+            
+            if (categories.length === 0) {
+                dropdown.innerHTML = '<div class="no-categories">Noch keine Kategorien</div>';
+            } else {
+                dropdown.innerHTML = categories.map((cat, index) => `
+                    <div class="category-option" onclick="selectCategory('${escapeHtml(cat)}')">
+                        <span>${escapeHtml(cat)}</span>
+                        <button class="category-delete" onclick="deleteCategory(event, ${index})">✕</button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function selectCategory(category) {
+            document.getElementById('category-input').value = category;
+            document.getElementById('category-dropdown').classList.remove('show');
+        }
+
+        function deleteCategory(event, index) {
+            event.stopPropagation();
+            if (confirm(`Kategorie "${categories[index]}" löschen?`)) {
+                categories.splice(index, 1);
+                saveCategories();
+                renderCategoryDropdown();
+                renderFilterButtons();
+            }
+        }
+
+        function addCategoryIfNew(category) {
+            if (category && !categories.includes(category)) {
+                categories.push(category);
+                saveCategories();
+                renderFilterButtons();
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const combobox = document.querySelector('.category-combobox');
+            const dropdown = document.getElementById('category-dropdown');
+            if (!combobox.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // ========== FILTER ==========
+        function renderFilterButtons() {
+            const container = document.getElementById('filter-section');
+            
+            let html = `
+                <button class="filter-btn ${currentFilter === 'alle' ? 'active' : ''}" onclick="setFilter('alle')">Alle</button>
+                <button class="filter-btn ${currentFilter === 'offen' ? 'active' : ''}" onclick="setFilter('offen')">Offen</button>
+                <button class="filter-btn ${currentFilter === 'erledigt' ? 'active' : ''}" onclick="setFilter('erledigt')">Erledigt</button>
+            `;
+            
+            categories.forEach(cat => {
+                html += `<button class="filter-btn ${currentFilter === cat ? 'active' : ''}" onclick="setFilter('${escapeHtml(cat)}')">${escapeHtml(cat)}</button>`;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function getFilteredTodos() {
+            return todos.filter(todo => {
+                const matchesSearch = searchQuery === '' || 
+                    todo.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (todo.category && todo.category.toLowerCase().includes(searchQuery.toLowerCase()));
+                
+                let matchesFilter = true;
+                switch (currentFilter) {
+                    case 'alle': matchesFilter = true; break;
+                    case 'offen': matchesFilter = !todo.completed; break;
+                    case 'erledigt': matchesFilter = todo.completed; break;
+                    default: matchesFilter = todo.category === currentFilter;
+                }
+                
+                return matchesSearch && matchesFilter;
+            });
+        }
+
+        function setFilter(filter) {
+            currentFilter = filter;
+            renderFilterButtons();
+            renderTodos();
+        }
+
+        // ========== DRAG & DROP ==========
+        /*
+         * HTML5 Drag & Drop API:
+         * - dragstart: Wenn man anfängt zu ziehen
+         * - dragover: Wenn man über ein anderes Element zieht
+         * - dragleave: Wenn man das Element wieder verlässt
+         * - drop: Wenn man loslässt
+         * - dragend: Wenn das Ziehen beendet ist
+         */
+        let draggedIndex = null;
+
+        function handleDragStart(e, index) {
+            draggedIndex = index;
+            e.target.classList.add('dragging');
+            // Für Firefox: Daten setzen
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', index);
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault(); // Wichtig! Erlaubt das Droppen
+            e.target.closest('.todo-item')?.classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+            e.target.closest('.todo-item')?.classList.remove('drag-over');
+        }
+
+        function handleDrop(e, targetIndex) {
+            e.preventDefault();
+            const todoItem = e.target.closest('.todo-item');
+            todoItem?.classList.remove('drag-over');
+            
+            if (draggedIndex !== null && draggedIndex !== targetIndex) {
+                // Element aus Array entfernen und an neuer Position einfügen
+                const [draggedTodo] = todos.splice(draggedIndex, 1);
+                todos.splice(targetIndex, 0, draggedTodo);
+                saveTodos();
+                renderTodos();
+            }
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('dragging');
+            document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+            draggedIndex = null;
+        }
+
+        // ========== SUBTASKS ==========
+        function addSubtask(todoIndex) {
+            const input = document.getElementById(`subtask-input-${todoIndex}`);
+            const text = input.value.trim();
+            
+            if (text) {
+                if (!todos[todoIndex].subtasks) {
+                    todos[todoIndex].subtasks = [];
+                }
+                todos[todoIndex].subtasks.push({
+                    text: text,
+                    completed: false
+                });
+                saveTodos();
+                renderTodos();
+            }
+        }
+
+        function toggleSubtask(todoIndex, subtaskIndex) {
+            todos[todoIndex].subtasks[subtaskIndex].completed = 
+                !todos[todoIndex].subtasks[subtaskIndex].completed;
+            saveTodos();
+            renderTodos();
+        }
+
+        function deleteSubtask(todoIndex, subtaskIndex) {
+            todos[todoIndex].subtasks.splice(subtaskIndex, 1);
+            saveTodos();
+            renderTodos();
+        }
+
+        // Subtasks anzeigen/verstecken
+        function toggleSubtasksView(todoIndex) {
+            todos[todoIndex].showSubtasks = !todos[todoIndex].showSubtasks;
+            saveTodos();
+            renderTodos();
+        }
+
+        // ========== EXPORT ALS CSV ==========
+        /*
+         * CSV (Comma-Separated Values) ist ein einfaches Tabellenformat.
+         * Jede Zeile ist ein Datensatz, Spalten werden durch Kommas getrennt.
+         * Wir erstellen die Datei im Browser und lösen einen Download aus.
+         */
+        function exportToCSV() {
+            // Header-Zeile
+            let csv = 'Aufgabe,Kategorie,Fällig am,Status,Subtasks\n';
+            
+            // Daten-Zeilen
+            todos.forEach(todo => {
+                // Felder die Kommas enthalten könnten in Anführungszeichen setzen
+                const text = `"${todo.text.replace(/"/g, '""')}"`;
+                const category = todo.category || '';
+                const dueDate = todo.dueDate || '';
+                const status = todo.completed ? 'Erledigt' : 'Offen';
+                const subtasks = todo.subtasks 
+                    ? `"${todo.subtasks.map(s => (s.completed ? '✓ ' : '○ ') + s.text).join('; ')}"` 
+                    : '';
+                
+                csv += `${text},${category},${dueDate},${status},${subtasks}\n`;
+            });
+
+            // Download auslösen
+            // Blob = Binary Large Object, ein Datenobjekt im Browser
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            
+            // Unsichtbaren Link erstellen und klicken
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `todos-${new Date().toISOString().split('T')[0]}.csv`;
+            link.click();
+            
+            // Aufräumen
+            URL.revokeObjectURL(url);
+        }
+
+        // ========== ANZEIGE ==========
+        function renderTodos() {
+            const list = document.getElementById('todo-list');
+            const filteredTodos = getFilteredTodos();
+            
+            if (filteredTodos.length === 0) {
+                let message = 'Keine Aufgaben vorhanden.<br>Füge deine erste Aufgabe hinzu!';
+                let icon = '✨';
+                
+                if (searchQuery !== '') {
+                    message = `Keine Aufgaben gefunden für "${escapeHtml(searchQuery)}"`;
+                    icon = '🔍';
+                } else if (currentFilter !== 'alle') {
+                    message = `Keine Aufgaben mit Filter "${escapeHtml(currentFilter)}"`;
+                    icon = '📭';
+                }
+                
+                list.innerHTML = `<div class="empty-state"><span>${icon}</span><p>${message}</p></div>`;
+            } else {
+                list.innerHTML = filteredTodos.map(todo => {
+                    const originalIndex = todos.indexOf(todo);
+                    const dateInfo = formatDate(todo.dueDate);
+                    const subtaskCount = todo.subtasks?.length || 0;
+                    const completedSubtasks = todo.subtasks?.filter(s => s.completed).length || 0;
+                    
+                    let subtasksHtml = '';
+                    if (todo.showSubtasks) {
+                        subtasksHtml = `
+                            <div class="subtasks">
+                                ${(todo.subtasks || []).map((subtask, sIndex) => `
+                                    <div class="subtask-item ${subtask.completed ? 'completed' : ''}">
+                                        <input type="checkbox" 
+                                            ${subtask.completed ? 'checked' : ''} 
+                                            onchange="toggleSubtask(${originalIndex}, ${sIndex})">
+                                        <span>${escapeHtml(subtask.text)}</span>
+                                        <button class="delete-subtask" onclick="deleteSubtask(${originalIndex}, ${sIndex})">✕</button>
+                                    </div>
+                                `).join('')}
+                                <div class="add-subtask-form">
+                                    <input type="text" 
+                                        id="subtask-input-${originalIndex}" 
+                                        placeholder="Neue Unteraufgabe..."
+                                        onkeypress="if(event.key==='Enter')addSubtask(${originalIndex})">
+                                    <button onclick="addSubtask(${originalIndex})">+</button>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    return `
+                        <li class="todo-item ${todo.completed ? 'completed' : ''}"
+                            draggable="true"
+                            ondragstart="handleDragStart(event, ${originalIndex})"
+                            ondragover="handleDragOver(event)"
+                            ondragleave="handleDragLeave(event)"
+                            ondrop="handleDrop(event, ${originalIndex})"
+                            ondragend="handleDragEnd(event)">
+                            
+                            <span class="drag-handle">⋮⋮</span>
+                            
+                            <input type="checkbox" 
+                                class="todo-checkbox"
+                                ${todo.completed ? 'checked' : ''}
+                                onchange="toggleTodo(${originalIndex})">
+                            
+                            <div class="todo-content">
+                                <div class="todo-text">${escapeHtml(todo.text)}</div>
+                                <div class="todo-meta">
+                                    ${todo.category ? `<span class="category-badge">${escapeHtml(todo.category)}</span>` : ''}
+                                    ${dateInfo ? `<span class="due-date-badge ${dateInfo.status}">📅 ${dateInfo.text}</span>` : ''}
+                                    ${subtaskCount > 0 ? `<span style="color: var(--text-secondary)">📋 ${completedSubtasks}/${subtaskCount}</span>` : ''}
+                                </div>
+                                ${subtasksHtml}
+                            </div>
+                            
+                            <div class="todo-actions">
+                                <button class="action-btn subtask-btn" onclick="toggleSubtasksView(${originalIndex})" title="Unteraufgaben">
+                                    ${todo.showSubtasks ? '▼' : '▶'} Subtasks
+                                </button>
+                                <button class="action-btn delete-btn" onclick="deleteTodo(${originalIndex})">Löschen</button>
+                            </div>
+                        </li>
+                    `;
+                }).join('');
+            }
+
+            updateStats();
+        }
+
+        function updateStats() {
+            const total = todos.length;
+            const completed = todos.filter(todo => todo.completed).length;
+            
+            document.getElementById('total-count').textContent = `${total} Aufgabe${total !== 1 ? 'n' : ''}`;
+            document.getElementById('completed-count').textContent = `${completed} erledigt`;
+        }
+
+        // ========== AKTIONEN ==========
+        function addTodo() {
+            const input = document.getElementById('todo-input');
+            const categoryInput = document.getElementById('category-input');
+            const dueDateInput = document.getElementById('due-date');
+            
+            const text = input.value.trim();
+            const category = categoryInput.value.trim();
+            
+            if (text !== '') {
+                if (category) {
+                    addCategoryIfNew(category);
+                }
+                
+                todos.push({
+                    text: text,
+                    completed: false,
+                    category: category || null,
+                    dueDate: dueDateInput.value || null,
+                    subtasks: [],
+                    showSubtasks: false,
+                    createdAt: new Date().toISOString()
+                });
+                
+                saveTodos();
+                renderTodos();
+                
+                // 🚀 RAKETE STARTEN!
+                launchRocket();
+                
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        function toggleTodo(index) {
+            todos[index].completed = !todos[index].completed;
+            saveTodos();
+            renderTodos();
+        }
+
+        function deleteTodo(index) {
+            todos.splice(index, 1);
+            saveTodos();
+            renderTodos();
+        }
+
+        // ========== EVENT LISTENER ==========
+        document.getElementById('todo-input').addEventListener('keypress', e => {
+            if (e.key === 'Enter') addTodo();
+        });
+
+        document.getElementById('category-input').addEventListener('keypress', e => {
+            if (e.key === 'Enter') addTodo();
+        });
+
+        document.getElementById('search-input').addEventListener('input', e => {
+            searchQuery = e.target.value;
+            renderTodos();
+        });
+
+        // ========== START ==========
+        renderFilterButtons();
+        renderTodos();
+    </script>
+</body>
+</html>
